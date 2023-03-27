@@ -4,12 +4,12 @@ from telegram.ext import filters, MessageHandler, ApplicationBuilder, CommandHan
 import openai
 import os
 
-token=os.environ("BOT_KEY")
+token=os.environ.get("BOT_KEY")
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
-openai.api_key = os.environ("OPENAI_KEY")
+openai.api_key = os.environ.get("OPENAI_KEY")
 
 async def generate_response(prompt):
     response = openai.ChatCompletion.create(
